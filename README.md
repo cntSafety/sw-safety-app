@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+# SW Safety Analysis Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React application for supporting software safety analysis in automotive contexts. This tool helps engineers import and analyze AUTOSAR XML (ARXML) files to understand software components and their safety-critical aspects.
+
+## Features
+
+- Import and parse AUTOSAR XML files
+- View structured component hierarchies
+- Navigate through component relationships
+- Responsive design for desktop and mobile use
+- Modern UI with Ant Design components
+
+## Live Demo
+
+You can view the live application at [https://cntSafety.github.io/sw-safety-app](https://cntSafety.github.io/sw-safety-app)
 
 ## Available Scripts
 

@@ -1,0 +1,52 @@
+.arxml-importer-container {
+  padding: 20px;
+}
+
+.ant-upload-drag-icon {
+  font-size: 48px;
+  color: #1677ff;
+}
+
+.ant-upload-text {
+  margin-top: 8px;
+  font-size: 16px;
+}
+
+.ant-upload-hint {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.file-imported {
+  padding: 20px;
+}
+
+.file-success {
+  display: flex;
+  align-items: center;
+  background-color: #f6ffed;
+  border: 1px solid #b7eb8f;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.file-icon {
+  font-size: 32px;
+  color: #52c41a;
+  margin-right: 16px;
+}
+
+.file-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-name {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.file-status {
+  color: #52c41a;
+  font-size: 14px;
+}

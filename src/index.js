@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+// Ant Design v5 no longer uses the import below:
+// import 'antd/dist/antd.css';
+// Modern Ant Design v5 automatically includes styles with components
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';

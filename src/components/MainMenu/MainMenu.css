@@ -1,0 +1,84 @@
+/* MainMenu.css - Master styling for navigation components */
+
+/* Header styling */
+.app-header {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 0 16px;
+  z-index: 1000;
+  height: 64px;
+  line-height: 64px;
+  width: 100%;
+}
+
+/* Logo styling */
+.logo {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1890ff;
+  margin-right: 24px;
+}
+
+/* Desktop menu styling */
+.menu-desktop {
+  flex: 1;
+  display: block;
+}
+
+/* Menu wrapper to ensure proper positioning */
+.menu-wrapper {
+  position: relative;
+  z-index: 1000;
+}
+
+/* Mobile toggle button - hidden on desktop */
+.menu-mobile-toggle {
+  display: none;
+  margin-left: auto;
+}
+
+/* Mobile sidebar overlay for closing when clicking outside */
+.mobile-sidebar-overlay {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 998;
+}
+
+/* Mobile sidebar styling */
+.mobile-sidebar {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  height: calc(100vh - 64px);
+  width: 200px;
+  background-color: #001529;
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
+
+.mobile-sidebar.collapsed {
+  transform: translateX(-100%);
+}
+
+.mobile-sidebar.expanded {
+  transform: translateX(0);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Media query for mobile devices */
+@media screen and (max-width: 768px) {
+  .menu-desktop {
+    display: none;
+  }
+  
+  .menu-mobile-toggle {
+    display: flex;
+    align-items: center;
+  }
+}

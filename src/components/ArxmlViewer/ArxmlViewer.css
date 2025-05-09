@@ -1,0 +1,30 @@
+.arxml-viewer-container {
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  height: 100%;
+}
+
+.viewer-header {
+  margin-bottom: 16px;
+}
+
+.file-name {
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 0.8em;
+}
+
+.arxml-node-title {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #1677ff;
+}
+
+.arxml-node-attribute {
+  color: #6c6c6c;
+}
+
+.arxml-node-text {
+  color: #003a8c;
+}

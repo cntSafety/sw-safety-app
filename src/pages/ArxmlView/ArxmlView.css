@@ -1,0 +1,31 @@
+.arxml-view-page {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  box-sizing: border-box;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.page-content {
+  flex: 1;
+  overflow: auto;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.loading-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 18px;
+  color: #bfbfbf;
+}
