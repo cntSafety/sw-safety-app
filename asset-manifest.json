@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/sw-safety-app/static/css/main.dbcf5ca4.css",
+    "main.js": "/sw-safety-app/static/js/main.a083a080.js",
+    "static/js/453.1d2d4e94.chunk.js": "/sw-safety-app/static/js/453.1d2d4e94.chunk.js",
+    "index.html": "/sw-safety-app/index.html",
+    "main.dbcf5ca4.css.map": "/sw-safety-app/static/css/main.dbcf5ca4.css.map",
+    "main.a083a080.js.map": "/sw-safety-app/static/js/main.a083a080.js.map",
+    "453.1d2d4e94.chunk.js.map": "/sw-safety-app/static/js/453.1d2d4e94.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dbcf5ca4.css",
+    "static/js/main.a083a080.js"
+  ]
+}
