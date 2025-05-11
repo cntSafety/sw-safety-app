@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { ConfigProvider, App as AntApp, message } from 'antd';
 import { HashRouter as Router, Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { MainMenu } from './components';
-import { HomePage, ArxmlImportPage, ArxmlViewPage } from './pages';
+import { HomePage, ArxmlImportPage, ArxmlViewPage, ArxmlStructureAnalysisPage } from './pages';
 import './App.css';
 
 // Wrapper component for navigation
@@ -36,6 +36,7 @@ const AppContent = () => {
               <Route path="/" element={<HomePage />} />
               <Route path="/import-arxml" element={<ArxmlImportPage />} />
               <Route path="/view-arxml" element={<ArxmlViewPage />} />
+              <Route path="/structure-analysis" element={<ArxmlStructureAnalysisPage />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </div>

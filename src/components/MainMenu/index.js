@@ -19,11 +19,16 @@ const MainMenu = ({ onNavigate }) => {
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
   };
-  
-  const handleMenuClick = (e) => {
+    const handleMenuClick = (e) => {
     switch (e.key) {
       case 'import-arxml':
         onNavigate('/import-arxml');
+        if (!collapsed) {
+          setCollapsed(true);
+        }
+        break;
+      case 'structure-analysis':
+        onNavigate('/structure-analysis');
         if (!collapsed) {
           setCollapsed(true);
         }
@@ -45,8 +50,7 @@ const MainMenu = ({ onNavigate }) => {
         console.log(`Menu item clicked: ${e.key}`);
     }
   };
-  
-  // Define menu items for desktop
+    // Define menu items for desktop
   const desktopMenuItems = [
     {
       key: 'file',
@@ -57,6 +61,11 @@ const MainMenu = ({ onNavigate }) => {
           key: 'import-arxml',
           icon: <FileOutlined />,
           label: 'Import .arxml'
+        },
+        {
+          key: 'structure-analysis',
+          icon: <FileTextOutlined />,
+          label: 'ARXML Structure Analysis'
         },
         {
           key: 'export',
@@ -140,7 +149,6 @@ const MainMenu = ({ onNavigate }) => {
       ]
     }
   ];
-
   // Define menu items for mobile
   const mobileMenuItems = [
     {
@@ -152,6 +160,11 @@ const MainMenu = ({ onNavigate }) => {
           key: 'import-arxml',
           icon: <FileOutlined />,
           label: 'Import .arxml'
+        },
+        {
+          key: 'structure-analysis',
+          icon: <FileTextOutlined />,
+          label: 'ARXML Structure Analysis'
         },
         {
           key: 'export',

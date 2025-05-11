@@ -1,0 +1,12 @@
+.arxml-structure-analysis-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .arxml-structure-analysis-container {
+    padding: 16px;
+  }
+}

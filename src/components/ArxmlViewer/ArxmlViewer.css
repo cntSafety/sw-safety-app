@@ -7,6 +7,15 @@
 
 .viewer-header {
   margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .file-name {
@@ -15,10 +24,71 @@
   font-size: 0.8em;
 }
 
+.filter-active {
+  color: #1677ff;
+  font-weight: normal;
+  font-size: 0.8em;
+}
+
+/* Improved scrolling performance */
+.tree-container {
+  position: relative;
+}
+
+.results-info {
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+
+/* Optimize tree node rendering */
+.ant-tree-list-holder {
+  position: relative;
+  will-change: transform;
+  contain: layout;
+}
+
+.ant-tree-treenode {
+  contain: layout;
+}
+
+/* Tree view container - full width */
+.tree-view-container {
+  width: 100%;
+}
+
+/* Pointer cursor for tree nodes to indicate they're clickable */
+.ant-tree-node-content-wrapper {
+  cursor: pointer;
+}
+
+.search-container {
+  margin-top: 12px;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .title-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .search-container {
+    width: 100%;
+  }
+}
+
 .arxml-node-title {
   font-size: 1.1em;
   font-weight: 600;
   color: #1677ff;
+}
+
+.arxml-node-subtitle {
+  color: #6c6c6c;
+  font-size: 0.85em;
+  margin-left: 8px;
 }
 
 .arxml-node-attribute {
@@ -27,4 +97,12 @@
 
 .arxml-node-text {
   color: #003a8c;
+}
+
+/* More visible highlighting for search matches */
+.arxml-node-match {
+  background-color: #fff3e0;
+  font-weight: bold;
+  padding: 2px 4px;
+  border-radius: 3px;
 }

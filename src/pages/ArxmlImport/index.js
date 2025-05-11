@@ -10,19 +10,51 @@ const { Title } = Typography;
 const ArxmlImportPage = () => {
   const navigate = useNavigate();
   const [importedFile, setImportedFile] = useState(null);
-
   const handleFileImported = (fileData) => {
     setImportedFile(fileData);
-    // Store the imported file data in sessionStorage
-    sessionStorage.setItem('arxmlFile', JSON.stringify(fileData));
+    
+    try {
+      // For large files, store only the parsed content and metadata, not the raw content
+      const storageData = {
+        id: fileData.id,
+        name: fileData.name,
+        parsedContent: fileData.parsedContent,
+        timestamp: Date.now()
+      };
+      
+      // Store the imported file data in sessionStorage
+      sessionStorage.setItem('arxmlFile', JSON.stringify(storageData));
+    } catch (error) {
+      console.error('Error storing ARXML data:', error);
+      // If storage fails, we'll still have the data in state
+      // and can pass it directly via navigation state
+    }
   };
 
   const handleBack = () => {
     navigate('/');
   };
-
   const handleViewArxml = () => {
-    navigate('/view-arxml');
+    if (importedFile) {
+      try {
+        // Check if we can access the sessionStorage data
+        const test = sessionStorage.getItem('arxmlFile');
+        if (!test) {
+          throw new Error('Session storage not available');
+        }
+        navigate('/view-arxml');
+      } catch (error) {
+        // If sessionStorage fails, pass the data via navigation state
+        navigate('/view-arxml', { 
+          state: { 
+            arxmlData: importedFile.parsedContent,
+            fileName: importedFile.name
+          } 
+        });
+      }
+    } else {
+      navigate('/view-arxml');
+    }
   };
 
   return (

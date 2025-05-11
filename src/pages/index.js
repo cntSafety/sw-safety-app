@@ -2,3 +2,4 @@
 export { default as HomePage } from './Home';
 export { default as ArxmlImportPage } from './ArxmlImport';
 export { default as ArxmlViewPage } from './ArxmlView';
+export { default as ArxmlStructureAnalysisPage } from './ArxmlStructureAnalysis';

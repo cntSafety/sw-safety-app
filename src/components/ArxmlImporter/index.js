@@ -11,16 +11,23 @@ const ArxmlImporter = ({ onFileImported }) => {
   const [fileList, setFileList] = useState([]);
   const [messageApi, contextHolder] = message.useMessage();
   const [currentFile, setCurrentFile] = useState(null);
-
-  const beforeUpload = (file) => {    const isXML = file.name.endsWith('.arxml') || file.type === 'application/xml';
+  const beforeUpload = (file) => {    
+    const isXML = file.name.endsWith('.arxml') || file.type === 'application/xml';
 
     if (!isXML) {
       messageApi.error('You can only upload ARXML or XML files!');
       return false;
     }
 
+    // Check file size - warning for very large files
+    const isLargeFile = file.size > 5 * 1024 * 1024; // 5MB
+    if (isLargeFile) {
+      messageApi.warning('This is a large file. Processing might take some time and might encounter storage limitations.');
+    }
+
     // Read the file content
     const reader = new FileReader();
+    
     reader.onload = (e) => {
       try {
         if (e.target && typeof e.target.result === 'string') {
@@ -29,22 +36,34 @@ const ArxmlImporter = ({ onFileImported }) => {
           // Process the content
           const parsedContent = parseArxmlContent(content);
           
-          // Notify parent component about the imported file
+          // For large files, we don't include the raw content to avoid storage limits
           const fileData = {
             id: Date.now().toString(),
             name: file.name,
-            content,
+            // Only include content for smaller files
+            ...(isLargeFile ? {} : { content }),
             parsedContent
           };
           
           setCurrentFile(fileData);
-          onFileImported(fileData);
           
-          messageApi.success(`${file.name} imported successfully`);
+          try {
+            onFileImported(fileData);
+            messageApi.success(`${file.name} imported successfully`);
+          } catch (storageError) {
+            // If there's a storage error, we still have the parsed data
+            messageApi.warning('File imported but storage limits reached. Navigation between pages may require re-importing.');
+            console.error('Storage error:', storageError);
+          }
         }
       } catch (error) {
-        messageApi.error(`Error parsing ${file.name}: ${error}`);
+        messageApi.error(`Error parsing ${file.name}: ${error.message || error}`);
+        console.error('Parsing error:', error);
       }
+    };
+    
+    reader.onerror = () => {
+      messageApi.error(`Failed to read the file: ${file.name}`);
     };
 
     reader.readAsText(file);
