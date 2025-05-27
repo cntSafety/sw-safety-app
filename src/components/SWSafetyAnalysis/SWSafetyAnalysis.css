@@ -1,0 +1,93 @@
+.sw-safety-analysis-container {
+  padding: 20px;
+}
+
+.sw-safety-upload {
+  margin-bottom: 20px;
+}
+
+.sw-safety-search {
+  margin: 16px 0;
+}
+
+.sw-safety-search .ant-input-affix-wrapper {
+  margin-right: 8px;
+}
+
+.sw-safety-table {
+  margin-top: 20px;
+}
+
+.failure-mode-row {
+  display: flex;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 8px;
+}
+
+.failure-mode-row > span:first-child {
+  width: 180px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.failure-mode-row > div {
+  flex-grow: 1;
+  min-width: 0; /* Added to allow content to shrink and wrap */
+}
+
+/* Risk rating colors */
+.sw-safety-risk-high {
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.sw-safety-risk-medium {
+  color: #faad14;
+  font-weight: bold;
+}
+
+.sw-safety-risk-low {
+  color: #52c41a;
+  font-weight: bold;
+}
+
+/* Table cell styling */
+.ant-table-cell {
+  white-space: normal;
+  word-break: break-word;
+  vertical-align: top;
+}
+
+/* Panel header styling */
+.ant-collapse-header-text {
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Allow tables to scroll horizontally on mobile */
+@media (max-width: 768px) {
+  .sw-safety-table .ant-table {
+    overflow-x: auto;
+    display: block; /* Ensure table behaves as a block for overflow to work */
+  }
+
+  .failure-mode-row {
+    flex-direction: column; /* Stack label and value vertically on small screens */
+  }
+
+  .failure-mode-row > span:first-child {
+    width: auto; /* Allow label to take full width */
+    margin-bottom: 4px; /* Add some space between label and value */
+  }
+}
+
+/* Override for antd editable text area to ensure it takes full width */
+.ant-typography-edit-content { /* Ensure the container of the input also takes full width */
+  width: 100% !important;
+}
+
+.ant-typography-edit-content .ant-input { /* This applies to both input and textarea if they have .ant-input class */
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
